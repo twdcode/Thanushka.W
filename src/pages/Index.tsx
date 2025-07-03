@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, Play, Camera, Film, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -6,12 +5,14 @@ import { Card } from '@/components/ui/card';
 import OpeningSequence from '@/components/OpeningSequence';
 import ProjectShowcase from '@/components/ProjectShowcase';
 import DirectorNotes from '@/components/DirectorNotes';
+import CaseStudy from '@/components/CaseStudy';
 
 const Index = () => {
   const [showContent, setShowContent] = useState(false);
   const [currentSection, setCurrentSection] = useState(0);
   const [showDirectorNotes, setShowDirectorNotes] = useState(false);
   const [directorNotesContent, setDirectorNotesContent] = useState('');
+  const [showCaseStudy, setShowCaseStudy] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -35,14 +36,15 @@ const Index = () => {
     },
     {
       id: 2,
-      title: "When Empathy Led the Way",
+      title: "Signals of Care",
       subtitle: "Mental Health App, 2023",
       description: "A gentle companion for those seeking support, designed with the understanding that healing begins with being truly seen.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=600&h=400&fit=crop",
       year: "2023",
-      role: "Product Designer",
+      role: "Lead UX Designer",
       duration: "6 months",
-      context: "Award-winning app with 95% user retention rate"
+      context: "Award-winning app with 95% user retention rate",
+      caseStudy: true
     },
     {
       id: 3,
@@ -61,6 +63,16 @@ const Index = () => {
     setDirectorNotesContent(content);
     setShowDirectorNotes(true);
   };
+
+  const handleProjectClick = (project: any) => {
+    if (project.caseStudy) {
+      setShowCaseStudy(true);
+    }
+  };
+
+  if (showCaseStudy) {
+    return <CaseStudy onDirectorNotes={handleDirectorNotes} />;
+  }
 
   if (!showContent) {
     return <OpeningSequence />;
@@ -194,6 +206,7 @@ const Index = () => {
             <ProjectShowcase 
               projects={projects} 
               onDirectorNotes={handleDirectorNotes}
+              onProjectClick={handleProjectClick}
             />
           </div>
         </section>
