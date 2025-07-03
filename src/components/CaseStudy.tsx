@@ -1,7 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowDown, Play, Eye, ExternalLink } from 'lucide-react';
+import { ArrowDown, Play, Eye, ExternalLink, Home } from 'lucide-react';
 
 interface CaseStudyProps {
   onDirectorNotes: (content: string) => void;
@@ -9,6 +10,7 @@ interface CaseStudyProps {
 
 const CaseStudy = ({ onDirectorNotes }: CaseStudyProps) => {
   const [activeSection, setActiveSection] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -29,6 +31,10 @@ const CaseStudy = ({ onDirectorNotes }: CaseStudyProps) => {
     return () => observer.disconnect();
   }, []);
 
+  const handleBackToHome = () => {
+    navigate('/');
+  };
+
   return (
     <div className="min-h-screen bg-black text-white font-inter">
       {/* Film Grain Overlay */}
@@ -41,6 +47,15 @@ const CaseStudy = ({ onDirectorNotes }: CaseStudyProps) => {
             CASE STUDY
           </div>
           <div className="flex items-center space-x-4">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-white/60 hover:text-white"
+              onClick={handleBackToHome}
+            >
+              <Home className="w-4 h-4 mr-2" />
+              Back to Home
+            </Button>
             <Button
               variant="ghost"
               size="sm"
