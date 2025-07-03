@@ -14,14 +14,16 @@ interface Project {
   role: string;
   duration: string;
   context: string;
+  caseStudy?: boolean;
 }
 
 interface ProjectShowcaseProps {
   projects: Project[];
   onDirectorNotes: (content: string) => void;
+  onProjectClick: (project: Project) => void;
 }
 
-const ProjectShowcase = ({ projects, onDirectorNotes }: ProjectShowcaseProps) => {
+const ProjectShowcase = ({ projects, onDirectorNotes, onProjectClick }: ProjectShowcaseProps) => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
 
   return (
@@ -89,6 +91,7 @@ const ProjectShowcase = ({ projects, onDirectorNotes }: ProjectShowcaseProps) =>
                   <Button 
                     variant="ghost" 
                     className="text-white/60 hover:text-white p-0 h-auto"
+                    onClick={() => onProjectClick(project)}
                   >
                     View Case Study
                     <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
