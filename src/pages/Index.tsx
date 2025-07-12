@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, Play, Camera, Film, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -79,7 +80,7 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white font-inter overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground font-inter overflow-x-hidden">
       {/* Film Grain Overlay */}
       <div className="fixed inset-0 film-grain pointer-events-none z-0" />
       
@@ -87,7 +88,7 @@ const Index = () => {
       <Button
         variant="ghost"
         size="sm"
-        className="fixed top-6 right-6 z-50 bg-black/50 border border-white/20 text-white hover:bg-white/10"
+        className="fixed top-6 right-6 z-50 bg-background/50 border border-border text-foreground hover:bg-muted"
         onClick={() => setShowDirectorNotes(!showDirectorNotes)}
       >
         <Film className="w-4 h-4 mr-2" />
@@ -103,12 +104,12 @@ const Index = () => {
               <h1 className="text-6xl md:text-8xl font-light tracking-wide font-crimson animate-title-reveal">
                 SARAH CHEN
               </h1>
-              <p className="text-xl md:text-2xl font-light tracking-widest text-white/80 animate-title-reveal">
+              <p className="text-xl md:text-2xl font-light tracking-widest text-muted-foreground animate-title-reveal">
                 PRODUCT DESIGNER & STORYTELLER
               </p>
             </div>
             
-            <div className="space-y-2 text-sm text-white/60 font-light">
+            <div className="space-y-2 text-sm text-muted-foreground font-light">
               <p>EST. 2018 • SAN FRANCISCO</p>
               <p>CRAFTING EXPERIENCES THAT MOVE PEOPLE</p>
             </div>
@@ -116,13 +117,13 @@ const Index = () => {
 
           {/* Scroll Indicator */}
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center space-y-2">
-            <span className="text-xs text-white/60 tracking-widest">SCROLL TO BEGIN</span>
-            <ChevronDown className="w-6 h-6 text-white/40 animate-scroll-pulse" />
+            <span className="text-xs text-muted-foreground tracking-widest">SCROLL TO BEGIN</span>
+            <ChevronDown className="w-6 h-6 text-muted-foreground animate-scroll-pulse" />
           </div>
 
           <Button
             variant="ghost"
-            className="absolute bottom-8 right-8 text-white/60 hover:text-white"
+            className="absolute bottom-8 right-8 text-muted-foreground hover:text-foreground"
             onClick={() => handleDirectorNotes("This opening sequence was inspired by the minimalist credits of art-house films. The delayed reveal creates anticipation, while the typography choices—serif for emotion, sans-serif for structure—establish the dual nature of design: both feeling and function.")}
           >
             <Eye className="w-4 h-4" />
@@ -130,16 +131,16 @@ const Index = () => {
         </section>
 
         {/* Philosophy Section */}
-        <section className="scroll-snap-section relative flex items-center justify-center min-h-screen bg-gradient-to-b from-black to-gray-900">
+        <section className="scroll-snap-section relative flex items-center justify-center min-h-screen bg-gradient-to-b from-background to-muted">
           <div className="max-w-4xl mx-auto px-6 text-center space-y-12">
             <div className="space-y-6">
-              <h2 className="text-4xl md:text-6xl font-light font-crimson text-white/90">
+              <h2 className="text-4xl md:text-6xl font-light font-crimson text-foreground">
                 Why I Design
               </h2>
-              <div className="w-24 h-px bg-white/30 mx-auto" />
+              <div className="w-24 h-px bg-border mx-auto" />
             </div>
             
-            <div className="space-y-8 text-lg md:text-xl font-light leading-relaxed text-white/80">
+            <div className="space-y-8 text-lg md:text-xl font-light leading-relaxed text-muted-foreground">
               <p>
                 Every interface tells a story. Every interaction is a moment in someone's day. 
                 I believe design is not just about solving problems—it's about understanding 
@@ -155,35 +156,35 @@ const Index = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
               <div className="text-center space-y-4">
-                <div className="w-16 h-16 mx-auto bg-white/10 rounded-full flex items-center justify-center">
-                  <Eye className="w-8 h-8 text-white/70" />
+                <div className="w-16 h-16 mx-auto bg-muted rounded-full flex items-center justify-center">
+                  <Eye className="w-8 h-8 text-muted-foreground" />
                 </div>
                 <h3 className="text-lg font-medium">Observation</h3>
-                <p className="text-sm text-white/60">Seeing what others miss</p>
+                <p className="text-sm text-muted-foreground">Seeing what others miss</p>
               </div>
               
               <div className="text-center space-y-4">
-                <div className="w-16 h-16 mx-auto bg-white/10 rounded-full flex items-center justify-center">
-                  <Camera className="w-8 h-8 text-white/70" />
+                <div className="w-16 h-16 mx-auto bg-muted rounded-full flex items-center justify-center">
+                  <Camera className="w-8 h-8 text-muted-foreground" />
                 </div>
                 <h3 className="text-lg font-medium">Composition</h3>
-                <p className="text-sm text-white/60">Framing the perfect moment</p>
+                <p className="text-sm text-muted-foreground">Framing the perfect moment</p>
               </div>
               
               <div className="text-center space-y-4">
-                <div className="w-16 h-16 mx-auto bg-white/10 rounded-full flex items-center justify-center">
-                  <Play className="w-8 h-8 text-white/70" />
+                <div className="w-16 h-16 mx-auto bg-muted rounded-full flex items-center justify-center">
+                  <Play className="w-8 h-8 text-muted-foreground" />
                 </div>
                 <h3 className="text-lg font-medium">Direction</h3>
-                <p className="text-sm text-white/60">Guiding the narrative</p>
+                <p className="text-sm text-muted-foreground">Guiding the narrative</p>
               </div>
             </div>
           </div>
 
           <Button
             variant="ghost"
-            className="absolute bottom-8 right-8 text-white/60 hover:text-white"
-            onClick={() => handleDirectorNotes("This section establishes my design philosophy through cinematic metaphors. The three pillars—Observation, Composition, Direction—mirror the director's process while explaining my UX approach. The gradual fade from black to gray creates depth without distraction.")}
+            className="absolute bottom-8 right-8 text-muted-foreground hover:text-foreground"
+            onClick={() => handleDirectorNotes("This section establishes my design philosophy through cinematic metaphors. The three pillars—Observation, Composition, Direction—mirror the director's process while explaining my UX approach. The gradual fade from background to muted creates depth without distraction.")}
           >
             <Eye className="w-4 h-4" />
           </Button>
@@ -196,8 +197,8 @@ const Index = () => {
               <h2 className="text-4xl md:text-6xl font-light font-crimson">
                 Selected Works
               </h2>
-              <div className="w-24 h-px bg-white/30 mx-auto" />
-              <p className="text-lg text-white/70 max-w-2xl mx-auto">
+              <div className="w-24 h-px bg-border mx-auto" />
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 Each project is a story of transformation—from challenge to solution, 
                 from user pain to user joy.
               </p>
@@ -212,12 +213,12 @@ const Index = () => {
         </section>
 
         {/* Contact Section */}
-        <section className="scroll-snap-section relative flex items-center justify-center min-h-screen bg-gradient-to-t from-black to-gray-900">
+        <section className="scroll-snap-section relative flex items-center justify-center min-h-screen bg-gradient-to-t from-background to-muted">
           <div className="text-center space-y-8">
             <h2 className="text-4xl md:text-6xl font-light font-crimson">
               Let's Create Something
             </h2>
-            <p className="text-xl text-white/70 max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Ready to start your next story? Let's collaborate on experiences 
               that move people and drive results.
             </p>
@@ -226,13 +227,13 @@ const Index = () => {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="bg-transparent border-white/30 text-white hover:bg-white hover:text-black transition-all duration-300"
+                className="bg-transparent border-border text-foreground hover:bg-foreground hover:text-background transition-all duration-300"
               >
                 View Full Portfolio
               </Button>
               <Button 
                 size="lg"
-                className="bg-white text-black hover:bg-white/90 transition-all duration-300"
+                className="bg-foreground text-background hover:bg-foreground/90 transition-all duration-300"
               >
                 Get In Touch
               </Button>
